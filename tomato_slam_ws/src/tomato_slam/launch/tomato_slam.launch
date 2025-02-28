@@ -1,0 +1,20 @@
+<launch>
+  <!-- 参数加载 -->
+  <arg name="orb_vocab" default="$(find tomato_slam)/config/ORBvoc.txt"/>
+  <arg name="orb_settings" default="$(find tomato_slam)/config/rgbd_orb_slam3.yaml"/>
+  <arg name="point_pillars_engine" default="$(find tomato_slam)/config/tomato_pointpillars.engine"/>
+  <arg name="use_sim_time" default="false"/>
+  
+  <!-- 设置参数 -->
+  <param name="/use_sim_time" value="$(arg use_sim_time)"/>
+  
+  <!-- 启动主节点 -->
+  <node name="tomato_slam_node" pkg="tomato_slam" type="tomato_slam_node" output="screen">
+    <param name="orb_vocab_path" value="$(arg orb_vocab)"/>
+    <param name="orb_settings_path" value="$(arg orb_settings)"/>
+    <param name="point_pillars_engine_path" value="$(arg point_pillars_engine)"/>
+  </node>
+  
+  <!-- 启动RVIZ可视化 -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find tomato_slam)/config/tomato_slam.rviz" required="true"/>
+</launch>

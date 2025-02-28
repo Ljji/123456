@@ -1,0 +1,39 @@
+# PointPillars 配置参数
+tomato_detection:
+  # PointPillars 点云网格参数
+  voxel_size:
+    x: 0.05
+    y: 0.05
+    z: 0.1
+  
+  point_cloud_range:
+    x_min: -5.0
+    y_min: -3.0
+    z_min: 0.0
+    x_max: 5.0
+    y_max: 3.0
+    z_max: 2.0
+  
+  # 网络参数
+  max_points_per_voxel: 32
+  max_voxels: 20000
+  input_feature_num: 4  # x, y, z, intensity
+  output_feature_num: 8  # 体素特征数量
+  
+  # 番茄检测参数
+  score_threshold: 0.3
+  nms_threshold: 0.5
+  max_detections: 100
+  
+  # 番茄标准尺寸 (米)
+  tomato_dimensions:
+    min_width: 0.05
+    max_width: 0.15
+    min_height: 0.05
+    max_height: 0.15
+    min_length: 0.05
+    max_length: 0.15
+  
+  # 修改这些文件路径以匹配您的实际路径
+  model_file: "/home/user/tomato_slam_ws/src/tomato_slam/models/tomato_pointpillars.onnx"
+  engine_file: "/home/user/tomato_slam_ws/src/tomato_slam/models/tomato_pointpillars.engine"

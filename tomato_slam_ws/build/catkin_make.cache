@@ -1,0 +1,2 @@
+tomato_slam
+-DCATKIN_DEVEL_PREFIX=/home/yw/tomato_slam_ws/devel -DCMAKE_INSTALL_PREFIX=/home/yw/tomato_slam_ws/install -G Unix Makefiles

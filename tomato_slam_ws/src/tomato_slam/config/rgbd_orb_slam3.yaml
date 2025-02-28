@@ -1,0 +1,86 @@
+%YAML:1.0
+
+#--------------------------------------------------------------------------------------------
+# Camera Parameters. 调整这些参数以匹配您的相机
+#--------------------------------------------------------------------------------------------
+Camera.type: "PinHole"
+
+# RGB-D相机内参 (根据实际相机标定结果调整)
+Camera.fx: 525.0
+Camera.fy: 525.0
+Camera.cx: 319.5
+Camera.cy: 239.5
+
+# 畸变系数 (根据实际相机标定结果调整)
+Camera.k1: 0.0
+Camera.k2: 0.0
+Camera.p1: 0.0
+Camera.p2: 0.0
+
+# 相机分辨率
+Camera.width: 640
+Camera.height: 480
+
+# IR投影仪与RGB相机之间的基线 (米)
+Camera.bf: 40.0
+
+# 深度系数，取决于深度图单位 (默认为1.0表示米)
+Camera.depthMapFactor: 1000.0
+
+# 最小/最大深度
+ThDepth: 40.0
+Camera.dMin: 0.1
+Camera.dMax: 10.0
+
+#--------------------------------------------------------------------------------------------
+# ORB Features
+#--------------------------------------------------------------------------------------------
+# 特征提取参数
+ORBextractor.nFeatures: 1000
+ORBextractor.scaleFactor: 1.2
+ORBextractor.nLevels: 8
+ORBextractor.iniThFAST: 20
+ORBextractor.minThFAST: 7
+
+#--------------------------------------------------------------------------------------------
+# Viewer Parameters
+#--------------------------------------------------------------------------------------------
+Viewer.KeyFrameSize: 0.05
+Viewer.KeyFrameLineWidth: 1
+Viewer.GraphLineWidth: 0.9
+Viewer.PointSize: 2
+Viewer.CameraSize: 0.08
+Viewer.CameraLineWidth: 3
+Viewer.ViewpointX: 0
+Viewer.ViewpointY: -0.7
+Viewer.ViewpointZ: -1.8
+Viewer.ViewpointF: 500
+
+#--------------------------------------------------------------------------------------------
+# ORB-SLAM3系统参数
+#--------------------------------------------------------------------------------------------
+# 闭环检测阈值
+LoopClosing.minScore: 0.75
+# 回环闭合阈值
+LoopClosing.thDist: 30.0
+# 回环闭合的共视连接数量
+LoopClosing.nCovisibilityConsistencyTh: 3
+
+# 全局BA迭代次数
+Optimizer.nGlobalBAIterations: 10
+# 局部BA迭代次数
+Optimizer.nLocalBAIterations: 10
+
+# 最大跟踪线程数（用于并行处理）
+Tracking.nThreads: 4
+# 关键帧间最小间隔（帧数）
+Tracking.nKeyFrameRate: 20
+# 本地地图点数量
+LocalMapping.nLocalMapPoints: 1000
+
+# 仅用于调试的IMU参数（但我们不使用IMU）
+IMU.Frequency: 200
+IMU.NoiseGyro: 1.7e-4
+IMU.NoiseBiasGyro: 1.0e-6
+IMU.NoiseAcc: 2.0e-3
+IMU.NoiseBiasAcc: 3.0e-4
